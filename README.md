@@ -1,0 +1,2 @@
+# Procurement-Calculator-Program
+The program is a purchase calculator, it consists of two windows, the first of which you add the product name, the quantity, and the price of one quantity, and upon clicking the Add button, add to the entered items   the total purchase price of the product to the list box in addition to the total purchases in the invoice window, which is a program It can be used for those who do not use the barcode feature, and the program is intended for owners of small shops with simple capabilities.
