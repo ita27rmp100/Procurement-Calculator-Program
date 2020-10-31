@@ -1,0 +1,39 @@
+def replace_(var,name,rename) : # الدالة الخاصة بتغيير إسم عنصر في متغير
+    x = var[0:var.index(name)]
+    y = var[var.index(name)+1:len(str(var))]
+    z = rename
+    replace_txt = x+z+y
+    return replace_txt
+def price (name_of_veg) :
+    from tkinter import messagebox
+    import csv
+    with open(r"D:\Clas2.csv","r") as f :
+        readf = csv.reader(f,delimiter=",")
+        data = list(readf)
+        x = data[0]
+        y = x[0]
+        x1 = data[1]
+        y1 = x1[0]
+        list_of_vig = []
+        list_of_pri = []
+        v = y.count(";")
+        v1 = y1.count(";")
+        for i in range(y.count(";")) :
+            y = replace_(y,";",str(i))
+        y = y+str(i+1)
+        list_of_vig.append(y[0:y.index(str(0))])
+        for j in range(0,v) :
+            list_of_vig.append(y[y.index(str(j))+1:y.index(str(j+1))])
+            j = j + 1
+        y1 = replace_(y1, ";", ",")
+        list_of_pri.append(y1[0:y1.index(",")])
+        for i1 in range(y1.count(";")) :
+            list_of_pri.append(y1[y1.index(",")+1:y1.index(";")])
+            y1 = replace_(y1,","," ")
+            y1 = replace_(y1, ";", ",")
+        list_of_pri.append(y1[y1.index(",")+1:len(y1)])
+        z = name_of_veg
+        if z in list_of_vig :
+            return  (list_of_pri[list_of_vig.index(z)])
+        else :
+           messagebox.showerror("خطأ","إسم المنتج غير مضمن في قاعدة البيانات")
